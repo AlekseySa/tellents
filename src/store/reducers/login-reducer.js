@@ -9,34 +9,22 @@ import Auth from 'j-toker';
 
 Auth.configure({ apiUrl: 'https://floating-atoll-63112.herokuapp.com/api' });
 
+const cookieAuthHeaders = document.cookie.replace(/(?:(?:^|.*;\s*)authHeaders\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+
 const initialState = {
-  authed: !(!document.cookie.replace(/(?:(?:^|.*;\s*)authHeaders\s*\=\s*([^;]*).*$)|^.*$/, '$1')),
+  authed: !(!JSON.parse(localStorage.getItem('user'))),
+  userToken: JSON.parse(localStorage.getItem('user')),
   registration: ''
 };
 
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
   case AUTHORIZATION: {
-    Auth.emailSignIn({
-      email: action.payload.email,
-      password: action.payload.password
-    });
-    console.log('емеил: ' + action.payload.email);
-    console.log('пароль: ' + action.payload.password);
-    return { ...state };
+    return { ...state, authed: !(!JSON.parse(localStorage.getItem('user')))};
   }
   case VALIDATE: {
-    let username = '';
-    Auth.validateToken()
-      .then(function(user) {
-        username = user.email;
-        console.log('юзер: ' + username);
-        console.log('qq2 ' + !!username);
-      })
-      .fail(() => {
-        alert('err');
-      });
-    return { ...state, authed: true };
+    localStorage.setItem('user', JSON.stringify(action.payload.user));
+    return { ...state, authed: !(!JSON.parse(localStorage.getItem('user'))) };
   }
   case TEST: {
     console.log('qq ' + state.authorization);
@@ -59,7 +47,7 @@ export const loginReducer = (state = initialState, action) => {
     console.log('фамилия: ' + action.payload.lastName);
     console.log('емеил: ' + action.payload.email);
     console.log('пароль: ' + action.payload.password);
-    return { ...state, registration: '' };
+    return { ...state, authed: !(!JSON.parse(localStorage.getItem('user'))) };
   }
   default:
     return state;

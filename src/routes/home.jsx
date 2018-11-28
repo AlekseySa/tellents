@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { authorization, registration, signOut } from '../store/actions';
+/* import { authorization, registration, signOut } from '../store/actions'; */
+import { auth, out, reg } from '../reducers/login/actions'
 
 import { Button } from 'react-bootstrap';
-import ModalRegister from './modal-register';
-import ModalLogin from './modal-login';
+import ModalRegister from '../components/modal-register';
+import ModalLogin from '../components/modal-login';
 
 import { Link, Redirect } from 'react-router-dom';
-import Auth from 'j-toker';
 
 import '../css/home.css';
 
@@ -56,8 +56,8 @@ class Home extends React.Component {
 
         {authed && (
           <div>
-            <Link className='button' to='/skills'>Skills</Link>
-            <Link className='button' to='/talent'>Talents</Link>
+            <Link className='button' to='/dashboard/skills'>Skills</Link>
+            <Link className='button' to='/dashboard/talent'>Talents</Link>
             <Button className='button' onClick={this.handleOut}>
               Sign Out
             </Button>
@@ -103,14 +103,14 @@ Home.propTypes = {
 
 export const stateToProps = state => {
   return {
-    authed: state.loginReducer.authed
+    authed: state.reducer.authed
   };
 };
 export const dispatchToProps = dispatch => {
   return {
-    authorization: bindActionCreators(authorization, dispatch),
-    registration: bindActionCreators(registration, dispatch),
-    signOut: bindActionCreators(signOut, dispatch)
+    authorization: bindActionCreators(auth, dispatch),
+    registration: bindActionCreators(reg, dispatch),
+    signOut: bindActionCreators(out, dispatch)
   };
 };
 export default connect(

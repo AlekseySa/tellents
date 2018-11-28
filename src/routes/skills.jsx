@@ -10,7 +10,7 @@ class Skills extends React.Component {
       <div className='wrapper'>
         <nav class='main-top-nav flexbox justify-space-between'>
           <div class='logo'>
-            <a class='logo-link' href='index.html'>
+            <a class='logo-link' href='/'>
               <img src='images/logo.png' height='39' width='auto' />
             </a>
           </div>

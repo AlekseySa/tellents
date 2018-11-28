@@ -4,14 +4,11 @@ import PropTypes from 'prop-types';
 import { Button, Modal } from 'react-bootstrap';
 
 import { Link, Redirect } from 'react-router-dom';
-import Auth from 'j-toker';
 
 class ModalLogin extends React.Component {
   state = {
     email: '',
-    password: '',
-    disabled: true,
-    redirect: false
+    password: ''
   };
 
   handleClose = () => {
@@ -23,26 +20,18 @@ class ModalLogin extends React.Component {
   };
   handleChange = e => {
     const { name } = e.currentTarget;
-    this.setState({ [name]: e.currentTarget.value, disabled: !name });
+    this.setState({ [name]: e.currentTarget.value });
   };
   handleAuth = () => {
     const { email, password } = this.state;
     this.props.onAuth(email, password);
     this.setState({ email: '', password: '' });
     this.props.handleClose();
-    Auth.validateToken()
-      .then(
-        function(user) {
-          this.setState({ redirect: true });
-        }.bind(this)
-      )
-      .fail(function() {});
   };
 
   render() {
     const { show } = this.props;
-    const { email, password, redirect } = this.state;
-    if (redirect) return <Redirect to='/home' />;
+    const { email, password } = this.state;
     return (
       <div>
         <Modal show={show} onHide={this.handleClose}>
@@ -64,16 +53,6 @@ class ModalLogin extends React.Component {
               onChange={this.handleChange}
             />
             <br />
-            <Link
-              to='/'
-              onClick={
-                this.state.email && this.state.password
-                  ? this.handleAuth
-                  : this.handleErr
-              }
-            >
-              Login
-            </Link>
             <Button
               onClick={
                 this.state.email && this.state.password

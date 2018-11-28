@@ -22,6 +22,7 @@ class ModalRegister extends React.Component {
     const { firstName, lastName, email, password } = this.state;
     this.props.onReg(firstName, lastName, email, password);
     this.setState({ firstName: '', lastName: '', email: '', password: '' });
+    this.props.handleClose();
   };
   render() {
     const { show } = this.props;
