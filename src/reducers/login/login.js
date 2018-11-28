@@ -1,7 +1,10 @@
 import { handleActions } from 'redux-actions';
 import * as TYPES from './types';
 
-const initialState = { authed: !(!JSON.parse(localStorage.getItem('user'))) };
+const initialState = {
+  authed: !(!JSON.parse(localStorage.getItem('user'))),
+  user: null
+};
 
 export const reducer = handleActions(
   {
@@ -10,6 +13,9 @@ export const reducer = handleActions(
     }),
     [TYPES.SIGNOUT]: (state) => ({
       ...state, authed: !(!JSON.parse(localStorage.getItem('user')))
+    }),
+    [TYPES.SET_CURRENT_USER]: (state, action) => ({
+      ...state, user: action.payload.user
     })
   },
   initialState
