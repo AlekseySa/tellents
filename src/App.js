@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import Home from './routes/home';
 import Login from './components/login';
 import Talent from './routes/talent';
+import Job from './routes/job';
 import Skills from './routes/skills';
 import NotFound from './routes/404';
 import Dashboard from './routes/dashboard';
@@ -32,7 +33,7 @@ function PrivateRoute ({component: Component, authed, ...rest}) {
 class App extends Component {
 
   state = {
-    authed: !(!document.cookie.replace(/(?:(?:^|.*;\s*)authHeaders\s*\=\s*([^;]*).*$)|^.*$/, "$1"))
+    authed: !(!JSON.parse(localStorage.getItem('user')))
   }
 
   render() {
@@ -45,8 +46,9 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route path='/home' component={Home} />
                 <PrivateRoute authed={this.state.authed} path='/dashboard' component={Dashboard} />
-                <PrivateRoute authed={this.state.authed} path='/dashboard/talent' component={Talent} />
-                <PrivateRoute authed={this.state.authed} path='/dashboard/skills' component={Skills} />
+                <PrivateRoute authed={this.state.authed} path='/dashboard/find/talent' component={Talent} />
+                <PrivateRoute authed={this.state.authed} path='/dashboard/find/job' component={Job} />
+                <PrivateRoute authed={this.state.authed} path='/dashboard/your-office/skills' component={Skills} />
                 <Route component={NotFound} />
               </Switch>
             </div>

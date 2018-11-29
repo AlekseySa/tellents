@@ -4,7 +4,7 @@ class Talent extends React.Component {
   render() {
     return (
       <div>
-        <button>Тык</button>
+        <button>Talent</button>
       </div>
     );
   }

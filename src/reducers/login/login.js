@@ -3,7 +3,7 @@ import * as TYPES from './types';
 
 const initialState = {
   authed: !(!JSON.parse(localStorage.getItem('user'))),
-  user: null
+  user: JSON.parse(localStorage.getItem('user'))
 };
 
 export const reducer = handleActions(

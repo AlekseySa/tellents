@@ -56,8 +56,8 @@ class Home extends React.Component {
 
         {authed && (
           <div>
-            <Link className='button' to='/dashboard/skills'>Skills</Link>
-            <Link className='button' to='/dashboard/talent'>Talents</Link>
+            <Link className='button' to='/dashboard/your-office/skills'>Skills</Link>
+            <Link className='button' to='/dashboard/find/talent'>Talents</Link>
             <Button className='button' onClick={this.handleOut}>
               Sign Out
             </Button>

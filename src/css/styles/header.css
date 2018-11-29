@@ -3,7 +3,7 @@
     width: 100%;
     background-color: white;
     min-height: 75px;
-    border-bottom: 1px solid #d9dada; 
+    border-bottom: 1px solid #d9dada;
     -webkit-border-radius: 0 0 6px 6px;
     -moz-border-radius: 0 0 6px 6px;
     -ms-border-radius: 0 0 6px 6px;
@@ -155,7 +155,6 @@
     width: 28px;
     height: 28px;
     margin: 5px;
-    background-image: url(../images/user-photo.jpg);
     background-position: center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;

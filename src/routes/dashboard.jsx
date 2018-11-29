@@ -1,17 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Skills from './skills';
-import Talent from './talent'
+import Talent from './talent';
+import Find from './find';
+import NotFound from './404';
+
+import { Link, Redirect, Route, Switch, Router } from 'react-router-dom';
+
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import '../css/bootstrap/css/bootstrap.min.css';
 import '../css/styles/styles.css';
 import '../css/styles/media.css';
+
+function ActiveLink({ label, to, exact }) {
+    return (
+      <Route
+        path={to}
+        exact={exact}
+        children={({ match }) => (
+          <div className={match ? "active" : ""}>
+            <Link to={to}>{label}</Link>
+          </div>
+        )}
+      />
+    );
+  }
 
 class Dashboard extends React.Component {
 
 
 
   renderNavigation = () => {
+    const { userName, userImageUrl } = this.props
     return (
       <div>
         <nav class='main-top-nav flexbox justify-space-between'>
@@ -67,32 +90,21 @@ class Dashboard extends React.Component {
               <div class='nav-list'>
                 <ul class='flexbox justify-space-between'>
                   <li>
-                    <a href='#'>
-                      Find <div class='caret' />
-                    </a>
+                    <a><ActiveLink exact={true} to='/dashboard/find' label='Find'/><div class='caret' /></a>
+                  </li>
+                  <li class=''>
+                    <Link to='/dashboard/your-office/skills'>Your office <div class='caret' /></Link>
+                  </li>
+                  <li class=''>
+                    <Link to='/dashboard/how-it-works'>How it works <div class='caret' /></Link>
                   </li>
                   <li class='active'>
-                    <a href='#'>
-                      Your office <div class='caret' />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      How it works <div class='caret' />
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'>
-                      Ask us <div class='caret' />
-                    </a>
+                    <Link to='/dashboard/ask-us'>Ask us <div class='caret' /></Link>
                   </li>
                 </ul>
               </div>
             </section>
             <div class='user-box'>
-              <div class='user-photo'>
-                <i class='notif' />
-              </div>
               <div class='user-box-nav dropdown'>
                 <a
                   href='#'
@@ -102,7 +114,8 @@ class Dashboard extends React.Component {
                   aria-haspopup='true'
                   aria-expanded='false'
                 >
-                  Philip Seamor
+                <img class='user-photo' src={userImageUrl} />
+                  {userName}
                   <span class='caret' />
                 </a>
                 <ul class='dropdown-menu'>
@@ -123,6 +136,11 @@ class Dashboard extends React.Component {
             </div>
           </section>
         </nav>
+        <Switch>
+          <Route path='/dashboard/find' component={Find} />
+          <Route path='/dashboard/your-office/skills' component={Skills} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }
@@ -135,4 +153,21 @@ class Dashboard extends React.Component {
     );
   }
 }
-export default Dashboard;
+Dashboard.propTypes = {
+  userName: PropTypes.string,
+  userImageUrl: PropTypes.string,
+};
+export const stateToProps = state => {
+  return {
+    userName: state.reducer.user.full_name,
+    userImageUrl: state.reducer.user.image.url
+  };
+};
+export const dispatchToProps = dispatch => {
+  return {
+  };
+};
+export default connect(
+  stateToProps,
+  dispatchToProps
+)(Dashboard);
