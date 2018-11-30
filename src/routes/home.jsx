@@ -103,7 +103,7 @@ Home.propTypes = {
 
 export const stateToProps = state => {
   return {
-    authed: state.reducer.authed
+    authed: state.loginReducer.authed
   };
 };
 export const dispatchToProps = dispatch => {

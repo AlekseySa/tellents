@@ -6,7 +6,7 @@ const initialState = {
   user: JSON.parse(localStorage.getItem('user'))
 };
 
-export const reducer = handleActions(
+export const loginReducer = handleActions(
   {
     [TYPES.AUTHORIZATION]: (state) => ({
       ...state, authed: !(!JSON.parse(localStorage.getItem('user')))
@@ -15,7 +15,7 @@ export const reducer = handleActions(
       ...state, authed: !(!JSON.parse(localStorage.getItem('user')))
     }),
     [TYPES.SET_CURRENT_USER]: (state, action) => ({
-      ...state, user: action.payload.user
+      ...state, user: action.payload
     })
   },
   initialState

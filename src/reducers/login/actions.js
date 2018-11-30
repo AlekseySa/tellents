@@ -14,7 +14,7 @@ export const auth = (email, password) => async dispatch => {
     dispatch(authorization());
   }
   catch (error) {
-    alert('Неправильный логин');
+    console.error(error);
   }
 };
 

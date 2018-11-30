@@ -12,7 +12,6 @@ import ModalLogin from './modal-login';
 import { Link, Redirect } from 'react-router-dom';
 
 import '../css/home.css';
-import Auth from 'j-toker';
 
 class Login extends React.Component {
   state = {

@@ -5,6 +5,7 @@ import Skills from './skills';
 import Talent from './talent';
 import Find from './find';
 import NotFound from './404';
+import YourOffice from './your-office';
 
 import { Link, Redirect, Route, Switch, Router } from 'react-router-dom';
 
@@ -93,7 +94,7 @@ class Dashboard extends React.Component {
                     <a><ActiveLink exact={true} to='/dashboard/find' label='Find'/><div class='caret' /></a>
                   </li>
                   <li class=''>
-                    <Link to='/dashboard/your-office/skills'>Your office <div class='caret' /></Link>
+                    <Link to='/dashboard/your-office'>Your office <div class='caret' /></Link>
                   </li>
                   <li class=''>
                     <Link to='/dashboard/how-it-works'>How it works <div class='caret' /></Link>
@@ -138,7 +139,7 @@ class Dashboard extends React.Component {
         </nav>
         <Switch>
           <Route path='/dashboard/find' component={Find} />
-          <Route path='/dashboard/your-office/skills' component={Skills} />
+          <Route path='/dashboard/your-office' component={YourOffice} />
           <Route component={NotFound} />
         </Switch>
       </div>
@@ -159,8 +160,8 @@ Dashboard.propTypes = {
 };
 export const stateToProps = state => {
   return {
-    userName: state.reducer.user.full_name,
-    userImageUrl: state.reducer.user.image.url
+    userName: state.loginReducer.user.full_name,
+    userImageUrl: state.loginReducer.user.image.url
   };
 };
 export const dispatchToProps = dispatch => {
