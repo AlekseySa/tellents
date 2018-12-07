@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { loginReducer } from './login';
-import { skillsReducer } from '../skills/skills';
+import { loginReducer } from './login/login';
+import { skillsReducer } from './skills/skills';
 
 export default combineReducers({
   loginReducer,

@@ -12,31 +12,27 @@ export const auth = (email, password) => async dispatch => {
     localStorage.setItem('user', JSON.stringify(user.data));
     dispatch(setCurrentUser(user));
     dispatch(authorization());
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
   }
 };
 
-
-export const out = () => async dispatch =>{
-  try{
+export const out = () => async dispatch => {
+  try {
     await AuthService.signOut();
     dispatch(signOut());
-  }
-  catch (error) {
-
+  } catch (error) {
+    console.error(error);
   }
 };
 
-export const reg = (firstName, lastName, email, password) => async dispatch =>{
+export const reg = (firstName, lastName, email, password) => async dispatch => {
   try {
     const user = await AuthService.reg(firstName, lastName, email, password);
     localStorage.setItem('user', JSON.stringify(user.data));
     dispatch(setCurrentUser(user));
     dispatch(authorization());
-  }
-  catch (error) {
-    alert('Неправильные данные');
+  } catch (error) {
+    console.error(error);
   }
 };

@@ -4,19 +4,17 @@ class NotFound extends React.Component {
   render() {
     return (
       <div>
-        <div class="wrapper err-404-page">
-
-
-          <div class="content">
-            <div class="err-404-wrapper">
-              <div class="err-404-title bg-cover">
+        <div className="wrapper err-404-page">
+          <div className="content">
+            <div className="err-404-wrapper">
+              <div className="err-404-title bg-cover">
                 <h2>404</h2>
               </div>
-              <div class="err-404-content">
-                <h2 class="blue-color">This page doesn't exist.</h2>
-                <a href="/home" class="btn btn-blue btn-with-icon">
-                  <span class="flexbox">
-                    <span class="icon icon-reply" />
+              <div className="err-404-content">
+                <h2 className="blue-color">This page doesn't exist.</h2>
+                <a href="/home" className="btn btn-blue btn-with-icon">
+                  <span className="flexbox">
+                    <span className="icon icon-reply" />
                     <span>HOME PAGE</span>
                   </span>
                 </a>
@@ -24,8 +22,8 @@ class NotFound extends React.Component {
             </div>
           </div>
 
-          <footer class="bg-white no-mrg">
-            <div class="container">
+          <footer className="bg-white no-mrg">
+            <div className="container">
               <span>© 2016 Talents </span>
               <ul>
                 <li>

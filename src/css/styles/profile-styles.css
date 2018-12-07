@@ -106,11 +106,11 @@
     height: 100%;
     text-align: center;
 }
-.my-central-info-nav.nav-tabs>li.active>a, 
-.my-central-info-nav.nav-tabs>li.active>a:focus, 
+.my-central-info-nav.nav-tabs>li.active>a,
+.my-central-info-nav.nav-tabs>li.active>a:focus,
 .my-central-info-nav.nav-tabs>li.active>a:hover,
-.my-central-info-nav.nav-tabs>li:hover>a, 
-.my-central-info-nav.nav-tabs>li:hover>a:focus, 
+.my-central-info-nav.nav-tabs>li:hover>a,
+.my-central-info-nav.nav-tabs>li:hover>a:focus,
 .my-central-info-nav.nav-tabs>li:hover>a:hover {
     color: #15a4fa;
     cursor: pointer;
@@ -599,7 +599,7 @@
 #my-jobs .job-list .desktop-hide {
     display: none;
 }
-#my-jobs .job-item .hourly-text, 
+#my-jobs .job-item .hourly-text,
 #my-jobs .job-item.hourly .fixed-text {
     display: none;
 }
@@ -841,7 +841,7 @@
     -webkit-transition: all ease 0.25s;
     transition: all ease 0.25s;
 }
-#my-jobs .job-item-content .milestone-nav-btn:hover, 
+#my-jobs .job-item-content .milestone-nav-btn:hover,
 #my-jobs .job-item-content .milestone-nav-btn:focus,
 #my-jobs .job-finish-content .job-finish-btn {
     background-color: #15a4fa;
@@ -940,7 +940,7 @@
 #my-jobs .job-bid-item {
     padding: 0;
     width: 100%;
-    overflow: visible; 
+    overflow: visible;
     cursor: pointer;
     -webkit-transition: all ease 0.25s;
     transition: all ease 0.25s;
@@ -1131,7 +1131,7 @@ section.bid-tips-list .item-info .item-info_title .icon {
     -ms-border-radius: 6px;
     border-radius: 6px;
     border: 1px solid #ffa51e;
-} 
+}
 .work-additional .title {
     line-height: 1.2;
     margin: 9px 0;
@@ -1174,8 +1174,8 @@ section.bid-tips-list .item-info .item-info_title .icon {
 }
 .work-info .work-descr {
     padding: 0;
-    color: #616161;  
-    cursor: pointer;  
+    color: #616161;
+    cursor: pointer;
 }
 .work-info .work-descr > p {
     display: none;
@@ -1323,13 +1323,13 @@ textarea.comments-area {
 .bid-modals :not(.skill-test-block) > input:-moz-read-only { /* For Firefox */
     background-color: #f0f1f2;
 }
-.bid-modals :not(.skill-test-block) > input:read-only { 
+.bid-modals :not(.skill-test-block) > input:read-only {
     background-color: #f0f1f2;
 }
 .bid-modals :not(.skill-test-block) > textarea:-moz-read-only { /* For Firefox */
     background-color: #f0f1f2;
 }
-.bid-modals :not(.skill-test-block) > textarea:read-only { 
+.bid-modals :not(.skill-test-block) > textarea:read-only {
     background-color: #f0f1f2;
 }
 .bid-modals .form-block-header{
@@ -1643,7 +1643,7 @@ textarea.comments-area {
 .promo-block-form-body label .panel-block {
     margin: 0;
 }
-.promo-block-form-body input:checked + label > .checkbox-circle .icon, 
+.promo-block-form-body input:checked + label > .checkbox-circle .icon,
 .promo-block-form-body .checkbox-block:hover .checkbox-circle .icon {
     color: #697277;
     font-size: 12px;
@@ -1815,7 +1815,7 @@ textarea.comments-area {
 .communication .communication-photo {
     width: 35px;
     height: 35px;
-    position: relative;    
+    position: relative;
 }
 
 .communication .communication-content {
@@ -1928,7 +1928,7 @@ textarea.comments-area {
     width: 33px;
     height: 33px;
     background-image: url(../images/user-photo.jpg);
-    position: relative;    
+    position: relative;
 }
 .conversation .dialog-box .dialog-photo {
     font-size: 16px;
@@ -2036,6 +2036,7 @@ textarea.comments-area {
 #skills.step-3-open .step-3 {
     display: block;
 }
+#skills.step-1-open .step-1-btn,
 #skills.step-2-open .step-2-btn,
 #skills.step-3-open .step-3-btn {
     display: inline-block;
@@ -2081,7 +2082,7 @@ textarea.comments-area {
 .skill-subcat {
     padding-top: 23px;
     padding-bottom: 23px;
-} 
+}
 .skill-subcat .skill-block {
     padding-left: 0;
     padding-top: 0;
@@ -2103,9 +2104,9 @@ textarea.comments-area {
     margin: 0 2px 15px;
 }
 .skill-sub-block input {
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     font-size: 13px;
-    color: #7f7f7f;
+    color: #444444;
     padding: 5px 30px 5px 10px;
     border-color: #f1f1f1;
     height: auto;
@@ -2167,7 +2168,7 @@ textarea.comments-area {
 #skills .skills-footer .add-btn {
     left: 0;
     top: 0;
-    margin: 2px 0;   
+    margin: 2px 0;
 }
 #skills .skill-subcat--new {
     background-color: #f0f2f3;
@@ -2176,7 +2177,7 @@ textarea.comments-area {
     border: none;
     margin-top: -1px;
     display: none;
-} 
+}
 #skills .skill-subcat--new.open {
     display: block;
 }
@@ -2468,7 +2469,7 @@ textarea.comments-area {
 .upload-media .post-job-inputs {
     margin: 35px 0;
 }
-.upload-media .post-job-inputs input, 
+.upload-media .post-job-inputs input,
 .upload-media .post-job-inputs textarea {
     background-color: #f0f1f2;
     color: #4b5053;
@@ -2607,14 +2608,14 @@ textarea.comments-area {
 .filter-nav-btn.btn-blue:hover,
 .filter-nav-btn.btn-blue:focus,
 .filter-nav-btn.btn-blue.active,
-.btn-default.active.btn-blue.focus, 
-.btn-default.active.btn-blue:focus, 
-.btn-default.active.btn-blue:hover, 
-.btn-default:active.btn-blue.focus, 
-.btn-default:active.btn-blue:focus, 
-.btn-default:active.btn-blue:hover, 
-.open>.dropdown-toggle.btn-default.btn-blue.focus, 
-.open>.dropdown-toggle.btn-default.btn-blue:focus, 
+.btn-default.active.btn-blue.focus,
+.btn-default.active.btn-blue:focus,
+.btn-default.active.btn-blue:hover,
+.btn-default:active.btn-blue.focus,
+.btn-default:active.btn-blue:focus,
+.btn-default:active.btn-blue:hover,
+.open>.dropdown-toggle.btn-default.btn-blue.focus,
+.open>.dropdown-toggle.btn-default.btn-blue:focus,
 .open>.dropdown-toggle.btn-default.btn-blue:hover {
     background-color: #1293e1;
     border-color: #1293e1;
