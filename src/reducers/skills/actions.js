@@ -17,7 +17,7 @@ const getSkillsFromCookie = () => {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 };
 
-const http = function() {
+const http = () => {
   const data = JSON.parse(getSkillsFromCookie());
   const headers = data;
   const instance = axios.create({
@@ -36,8 +36,6 @@ export const setSkills = () => async dispatch => {
     const s = await http()
       .get('/profile/skills/user')
       .then(response => response.data.profession_categories);
-    console.log('массив из actions: ');
-    console.log(s);
     dispatch(setProfessions(s));
   } catch (error) {
     console.error(error);
@@ -63,6 +61,28 @@ export const checkProf = s => dispatch => {
 
 export const changeProf = s => dispatch => {
   dispatch(changeProfession(s));
+};
+
+export const postDeleteProf = (checkProfession, professionsList) => async dispatch => {
+  try {
+    const categories2 = professionsList;
+    const categories = categories2
+      .filter(prof => !(prof.id === checkProfession.id))
+      .map(prof => ({
+        id: prof.id,
+        skill_categories: prof.skill_categories
+          .filter(skill => skill.selected)
+          .map(skill => {
+            const id = skill.id;
+            return id;
+          }),
+        skill_tags: prof.skill_tags,
+      }));
+    await http().post('/profile/skills', { categories });
+    dispatch(postChangeProfessions(professionsList));
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const postChangeProf = (checkProfession, professionsList) => async dispatch => {

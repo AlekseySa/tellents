@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/skills.css';
+import '../../css/skills.css';
 
 class SkillEdit extends React.Component {
   state = {
@@ -23,7 +23,6 @@ class SkillEdit extends React.Component {
       return skill;
     });
     this.props.changeProfessionSkill(checkProfession, changeCheckSkill);
-    console.log(checkProfession.skill_categories);
   };
 
   handleDeleteSkillTag = item => {
@@ -38,12 +37,10 @@ class SkillEdit extends React.Component {
     const changeCheckSkillTag = checkProfession.skill_tags;
     changeCheckSkillTag.push(tag);
     this.props.changeProfessionSkillTag(checkProfession, changeCheckSkillTag);
-    console.log('тык');
-    console.log(changeCheckSkillTag);
   };
 
   onBlur = () => {
-    setTimeout(function() {
+    setTimeout(() => {
       this.setState({
         displayDropdown: 'dropdown-tags display-none',
         tag: '',

@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "eslint": "^5.9.0",
+    "eslint": "^5.6.0",
     "eslint-config-purrweb-react": "^1.0.7",
     "j-toker": "0.0.10-beta3",
     "prop-types": "^15.6.2",

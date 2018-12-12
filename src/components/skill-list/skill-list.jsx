@@ -37,8 +37,8 @@ class SkillList extends React.Component {
     this.props.skillsComponentDidMount();
   };
 
-  deleteProfession = () => {
-    console.log('delete');
+  deleteProfession = item => {
+    this.props.deleteProfession(item);
   };
 
   editProfession = item => {
@@ -72,7 +72,7 @@ class SkillList extends React.Component {
                     </div>
                   </div>
                   <div className="skill-block-footer">
-                    <a onClick={this.deleteProfession}>Delete</a>
+                    <a onClick={() => this.deleteProfession(item)}>Delete</a>
                     <a onClick={() => this.editProfession(item)}>Edit</a>
                   </div>
                 </div>
@@ -93,6 +93,7 @@ SkillList.propTypes = {
   professionsList: PropTypes.array,
   fetching: PropTypes.bool,
   checkProf: PropTypes.func,
+  deleteProfession: PropTypes.func,
   openEditSkill: PropTypes.func,
 };
 export default SkillList;

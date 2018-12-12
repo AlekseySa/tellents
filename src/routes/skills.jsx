@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Link, Redirect, Route, Switch, Router } from 'react-router-dom';
-
-import { setSkills, setProf, checkProf, postChangeProf, changeTag } from '../reducers/skills/actions';
+import { setSkills, setProf, checkProf, postChangeProf, changeTag, postDeleteProf } from '../reducers/skills/actions';
 
 import SkillList from '../components/skill-list';
 import SkillAdd from '../components/skill-add';
@@ -18,9 +16,9 @@ import '../css/styles/media.css';
 
 class Skills extends React.Component {
   state = {
-    skill_add: false,
-    skill_edit: false,
-    skill_list: true,
+    skillAdd: false,
+    skillEdit: false,
+    skillList: true,
   };
 
   componentDidMount = async () => {
@@ -28,7 +26,6 @@ class Skills extends React.Component {
       await this.props.setSkills();
       const yourProfessions = this.props.professions.filter(prof => prof.selected);
       this.props.setProf(yourProfessions);
-      console.log(yourProfessions);
     } catch (error) {
       console.error(error);
     }
@@ -36,25 +33,25 @@ class Skills extends React.Component {
 
   openAddSkill = () => {
     this.setState({
-      skill_add: true,
-      skill_edit: false,
-      skill_list: false,
+      skillAdd: true,
+      skillEdit: false,
+      skillList: false,
     });
   };
 
   openEditSkill = () => {
     this.setState({
-      skill_add: false,
-      skill_edit: true,
-      skill_list: false,
+      skillAdd: false,
+      skillEdit: true,
+      skillList: false,
     });
   };
 
   openSkillList = () => {
     this.setState({
-      skill_add: false,
-      skill_edit: false,
-      skill_list: true,
+      skillAdd: false,
+      skillEdit: false,
+      skillList: true,
     });
   };
 
@@ -90,15 +87,22 @@ class Skills extends React.Component {
     this.props.changeTag(s);
   };
 
+  deleteProfession = async item => {
+    const { professionsList } = this.props;
+    this.setState({ skillList: false });
+    await this.props.postDeleteProf(item, professionsList);
+    this.openSkillList();
+  };
+
   render() {
-    const { step, skill_add, skill_list, skill_edit } = this.state;
+    const { skillAdd, skillList, skillEdit } = this.state;
     const { fetching, professions, professionsList, checkProfession, tagList } = this.props;
     return (
       <div role="tabpanel" className="tab-pane my-tab" id="skills">
         <div className="steps-nav flexbox justify-space-between">
           <div className="steps-nav-title">Your Shared Skills</div>
           <div className="steps-nav-btn">
-            {skill_add && (
+            {skillAdd && (
               <div className="btn-group clearfix">
                 <button
                   type="button"
@@ -112,7 +116,7 @@ class Skills extends React.Component {
                 </button>
               </div>
             )}
-            {skill_edit && (
+            {skillEdit && (
               <div className="btn-group clearfix">
                 <button type="button" onClick={this.openAddSkill} className="btn btn-blue-border btn-bold step-toggler">
                   Back
@@ -126,14 +130,14 @@ class Skills extends React.Component {
                 </button>
               </div>
             )}
-            {skill_list && (
+            {skillList && (
               <button type="button" onClick={this.openAddSkill} className="btn btn-blue btn-bold step-toggler">
                 Add
               </button>
             )}
           </div>
         </div>
-        {skill_add && (
+        {skillAdd && (
           <SkillAdd
             checkProf={this.checkProf}
             openEditSkill={this.openEditSkill}
@@ -141,7 +145,7 @@ class Skills extends React.Component {
             fetching={fetching}
           />
         )}
-        {skill_edit && (
+        {skillEdit && (
           <SkillEdit
             changeProfessionSkill={this.changeProfessionSkill}
             changeProfessionSkillTag={this.changeProfessionSkillTag}
@@ -150,11 +154,12 @@ class Skills extends React.Component {
             tagList={tagList}
           />
         )}
-        {skill_list && (
+        {skillList && (
           <SkillList
             skillsComponentDidMount={this.componentDidMount}
             checkProf={this.checkProf}
             openEditSkill={this.openEditSkill}
+            deleteProfession={this.deleteProfession}
             professionsList={professionsList}
             fetching={fetching}
           />
@@ -174,6 +179,7 @@ Skills.propTypes = {
   fetching: PropTypes.bool,
   checkProfession: PropTypes.object,
   tagList: PropTypes.array,
+  postDeleteProf: PropTypes.func,
 };
 
 export const stateToProps = state => ({
@@ -189,6 +195,7 @@ export const dispatchToProps = dispatch => ({
   checkProf: bindActionCreators(checkProf, dispatch),
   postChangeProf: bindActionCreators(postChangeProf, dispatch),
   changeTag: bindActionCreators(changeTag, dispatch),
+  postDeleteProf: bindActionCreators(postDeleteProf, dispatch),
 });
 export default connect(
   stateToProps,

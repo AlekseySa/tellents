@@ -1,4 +1,6 @@
 import React from 'react';
+import { Modal, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class ModalLogin extends React.Component {
   state = {

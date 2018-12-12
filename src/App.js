@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import Home from './routes/home';
-import Login from './components/login';
 import Talent from './routes/talent';
 import Job from './routes/job';
 import Skills from './routes/skills';
