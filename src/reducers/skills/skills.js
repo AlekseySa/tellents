@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import * as TYPES from './types';
 
-const initialState = {
+export const initialState = {
   professions: null,
   professionsList: null,
   fetching: false,

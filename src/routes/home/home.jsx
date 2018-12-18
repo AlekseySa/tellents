@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 /* import { authorization, registration, signOut } from '../store/actions'; */
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { auth, out, reg } from '../reducers/login/actions';
+import { auth, out, reg } from '../../reducers/login/actions';
 
-import ModalRegister from '../components/modal-register';
-import ModalLogin from '../components/modal-login';
+import ModalRegister from '../../components/modal-register';
+import ModalLogin from '../../components/modal-login';
 
-import '../css/home.css';
+import '../../css/home.css';
 
 class Home extends React.Component {
   state = {

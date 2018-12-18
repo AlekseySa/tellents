@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { Link, Route, Switch } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Find from './find';
-import NotFound from './404';
-import YourOffice from './your-office';
+import Find from '../find';
+import NotFound from '../404';
+import YourOffice from '../your-office';
 
-import '../css/bootstrap/css/bootstrap.min.css';
-import '../css/styles/styles.css';
-import '../css/styles/media.css';
+import '../../css/bootstrap/css/bootstrap.min.css';
+import '../../css/styles/styles.css';
+import '../../css/styles/media.css';
 
 function ActiveLink({ label, to, exact }) {
   return (

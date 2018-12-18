@@ -4,15 +4,22 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { setSkills, setProf, checkProf, postChangeProf, changeTag, postDeleteProf } from '../reducers/skills/actions';
+import {
+  setSkills,
+  setProf,
+  checkProf,
+  postChangeProf,
+  changeTag,
+  postDeleteProf,
+} from '../../reducers/skills/actions';
 
-import SkillList from '../components/skill-list';
-import SkillAdd from '../components/skill-add';
-import SkillEdit from '../components/skill-edit';
+import SkillList from '../../components/skill-list';
+import SkillAdd from '../../components/skill-add';
+import SkillEdit from '../../components/skill-edit';
 
-import '../css/bootstrap/css/bootstrap.min.css';
-import '../css/styles/styles.css';
-import '../css/styles/media.css';
+import '../../css/bootstrap/css/bootstrap.min.css';
+import '../../css/styles/styles.css';
+import '../../css/styles/media.css';
 
 class Skills extends React.Component {
   state = {

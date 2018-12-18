@@ -1,0 +1,21 @@
+.right-btns{
+  float: right;
+  width: 260px;
+}
+div .right-btns-margin{
+  margin-right: 0;
+  padding-right: 0;
+}
+div .left-col{
+  padding-left: 0;
+  padding-right: 30px;
+}
+div div .left-col-top {
+  margin-bottom: 0;
+}
+.center-cards{
+  float: left;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  width: 40%;
+}

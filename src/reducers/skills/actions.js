@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
-import axios from 'axios';
 import * as TYPES from './types';
+import { http } from '../../service/httpService';
 
 const setProfessions = createAction(TYPES.SET_PROFESSIONS);
 const setProfessionsList = createAction(TYPES.SET_PROFESSIONS_LIST);
@@ -8,28 +8,6 @@ const checkProfession = createAction(TYPES.CHECK_PROFESSION);
 const changeProfession = createAction(TYPES.CHANGE_PROFESSION);
 const postChangeProfessions = createAction(TYPES.POST_CHANGE_PROFESSIONS);
 const setTagList = createAction(TYPES.SET_TAG_LIST);
-
-const getSkillsFromCookie = () => {
-  const name = 'authHeaders';
-  const matches = document.cookie.match(
-    new RegExp(`(?:^|; )${name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')}=([^;]*)`),
-  );
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-};
-
-const http = () => {
-  const data = JSON.parse(getSkillsFromCookie());
-  const headers = data;
-  const instance = axios.create({
-    baseURL: 'https://floating-atoll-63112.herokuapp.com/api/v1',
-    headers,
-    withCredentials: true,
-  });
-
-  instance.interceptors.response.use(response => response, error => Promise.reject(error));
-
-  return instance;
-};
 
 export const setSkills = () => async dispatch => {
   try {

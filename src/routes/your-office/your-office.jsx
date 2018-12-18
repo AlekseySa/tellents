@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Link, Redirect, Route, Switch, Router } from 'react-router-dom';
-import Skills from './skills';
-import NotFound from './404';
+import Skills from '../skills';
+import NotFound from '../404';
 
 class YourOffice extends React.Component {
   render() {
