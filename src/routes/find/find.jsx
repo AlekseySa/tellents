@@ -168,33 +168,35 @@ class Find extends React.Component {
                 </div>
               </div>
             </div>
-            <Switch>
-              <Route path="/dashboard/find/job" component={Job} />
-              <Route path="/dashboard/find/talent" component={Talent} />
-              <Redirect from="/dashboard/find" to="/dashboard/find/talent" />
-              <Route component={NotFound} />
-            </Switch>
-            <div className="row main-content flexbox">
-              <div className="col-xs-10 container-fluid right-btns-margin job-boxes job-boxes--talents">
-                <div className="flexbox row right-btns">
-                  <div className="col-xs-3 right-sidebar">
-                    <div className="panel panel-default panel-btn">
-                      <a href="">
-                        <i className="icon icon-hand" />
-                        <span> Start New Project </span>
-                      </a>
-                    </div>
-                    <div className="panel panel-default panel-btn">
-                      <a href="">
-                        <i className="icon icon-new" />
-                        <span> Start New Promotion </span>
-                      </a>
-                    </div>
-                    <div className="panel panel-default panel-btn">
-                      <a href="">
-                        <i className="icon icon-share" />
-                        <span> Tell others Something that you know</span>
-                      </a>
+            <div className="flex">
+              <Switch>
+                <Route path="/dashboard/find/job" component={Job} />
+                <Route path="/dashboard/find/talent" component={Talent} />
+                <Redirect from="/dashboard/find" to="/dashboard/find/talent" />
+                <Route component={NotFound} />
+              </Switch>
+              <div className="row main-content flexbox">
+                <div className="col-xs-10 container-fluid right-btns-margin job-boxes job-boxes--talents">
+                  <div className="flexbox row right-btns">
+                    <div className="col-xs-3 right-sidebar">
+                      <div className="panel panel-default panel-btn">
+                        <a href="">
+                          <i className="icon icon-hand" />
+                          <span> Start New Project </span>
+                        </a>
+                      </div>
+                      <div className="panel panel-default panel-btn">
+                        <a href="">
+                          <i className="icon icon-new" />
+                          <span> Start New Promotion </span>
+                        </a>
+                      </div>
+                      <div className="panel panel-default panel-btn">
+                        <a href="">
+                          <i className="icon icon-share" />
+                          <span> Tell others Something that you know</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

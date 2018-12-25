@@ -4,6 +4,7 @@
 }
 div .right-btns-margin{
   margin-right: 0;
+  margin-left: 30px;
   padding-right: 0;
 }
 div .left-col{
@@ -15,7 +16,44 @@ div div .left-col-top {
 }
 .center-cards{
   float: left;
-  padding-bottom: 30px;
   padding-right: 30px;
-  width: 40%;
+  width: 50%;
+}
+.cards-width{
+  width: 100%;
+  margin: 0 2%;
+  position: relative;
+}
+.flex{
+  display: flex;
+}
+
+.filter-block .checkbox-block .iconon {
+  visibility: visible;
+  color: #fff;
+}
+.filter-block .checkbox-block .iconoff {
+  visibility: hidden;
+  color: #fff;
+}
+
+.filter-checkbox-on {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-top: 6px;
+  font-size: 9px;
+  background-color: #15a4fa;
+  padding: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+}
+.filter-block .checkbox-block .filter-checkbox-on {
+  background-color: #15a4fa;
+}
+.fix-margin {
+  margin-left: -10px;
+  margin-top: 2px;
 }
